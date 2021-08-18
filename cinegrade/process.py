@@ -1,61 +1,52 @@
-import cv2
 import os
-from cinegrade.gradient import create_matting
-from cinegrade.utils import (
-    create_center_rectangle,
-    get_dominant_color,
-    write_img_to_dir,
-)
+from tqdm import tqdm
+from concurrent.futures import ProcessPoolExecutor, as_completed
+from multiprocessing import Manager, cpu_count
+from cinegrade.images import Video, draw_center_box, get_dominant_color, write_img_to_dir
+from cinegrade.gradient import create_cinegrade
+from cinegrade.utils import Config, chunk_list, get_filename
 
 
-class Video:
-    def __init__(self, file_path, number_of_frames):
-        self.vidcap = cv2.VideoCapture(file_path)
-        self.set_desired_frames(number_of_frames)
-
-    def set_desired_frames(self, number_of_frames):
-        self.frame_step = int(len(self) / number_of_frames) + 1
-
-    def get_frame(self, frame):
-        self.vidcap.set(cv2.CAP_PROP_POS_FRAMES, frame)
-        success, image = self.vidcap.read()
-        return image if success else []
-
-    def __len__(self):
-        return int(self.vidcap.get(cv2.CAP_PROP_FRAME_COUNT))
+def write_video_snap(image, frame_number, dominant_color, video_file_path):
+    draw_center_box(image, dominant_color, Config.box_size)
+    filename = get_filename(video_file_path)
+    write_img_to_dir(image, os.path.join(Config.output_dir, filename), f"f_{frame_number}.jpg")
 
 
-def draw_center_box(image, color, size):
-    height, width, _ = image.shape
-    inner_start, inner_end = create_center_rectangle((width, height), (size, size))
-    cv2.rectangle(
-        image,
-        inner_start,
-        inner_end,
-        color,
-        thickness=-1,
-    )
+def process_chunk(video_file_path, frame_numbers, colors):
+    video = Video(video_file_path)
+    for frame_number in frame_numbers:
+        process_frame(video, frame_number, colors, video_file_path)
+    video.release()
 
 
-def write_video_snap(image, frame_number, dominant_color):
-    draw_center_box(image, dominant_color, 64)
-    write_img_to_dir(image, "output", f"frame_{frame_number}.jpg")
+def process_frame(video, frame_number, colors, video_file_path):
+    image = video.get_frame(frame_number)
+    if len(image):
+        dominant_color = get_dominant_color(image)
+        colors.append(dominant_color)
+        if Config.write_frames:
+            write_video_snap(image, frame_number, dominant_color, video_file_path)
 
 
-def process_video(video_file_path, number_of_colors=100):
-    video = Video(video_file_path, number_of_colors)
-
+def process_video(video_file_path):
+    video = Video(video_file_path, Config.num_colors)
     colors = []
-    for frame_number in range(0, len(video), video.frame_step):
-        image = video.get_frame(frame_number)
-        if len(image):
-            dominant_color = get_dominant_color(image)
-            colors.append(dominant_color)
-            # write_video_snap(image, frame_number, dominant_color)
+    frame_numbers = range(0, len(video), video.frame_step)
+    video.release()
+    chunks = list(chunk_list(frame_numbers, Config.chunk_size))
 
-    gradient = create_matting(colors, (1080, 1920))
-    write_img_to_dir(
-        gradient,
-        "gradient",
-        f"{os.path.basename(video_file_path).split('.')[0]}_gradient.jpg",
-    )
+    with tqdm(total=len(chunks)) as pbar:
+        with ProcessPoolExecutor(max_workers=cpu_count()) as executor:
+            with Manager() as manager:
+                colors = manager.list()
+                futures = [
+                    executor.submit(process_chunk, video_file_path, chunk_frames, colors) for chunk_frames in chunks
+                ]
+
+                for _ in as_completed(futures):
+                    pbar.update(1)
+                pbar.close()
+
+                gradient = create_cinegrade(colors)
+                return gradient

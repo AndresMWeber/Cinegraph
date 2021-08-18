@@ -1,32 +1,46 @@
+import enum
 import os
-import cv2
-import numpy as np
 
 
-def mkdir(dirname):
-    if not os.path.exists(dirname):
-        os.mkdir(dirname)
+class Config:
+    output_dir = "output"
+    resolution = (1920, 1080)
+    num_colors = 600
+    blur_x = 5
+    blur_y = 5
+    bg_color = 255
+    border_width = 1
+    write_frames = False
+    art_frame = True
+    art_frame_margin = 10
+    box_size = 64
+    chunk_size = 10
 
 
-def create_center_rectangle(dimensions, size):
-    width, height = dimensions
-    x, y = size
-    return [
-        (int((width / 2) - x), int((height / 2) - y)),
-        (int((width / 2) + x), int((height / 2) + y)),
-    ]
+def chunk_list(lst, n):
+    """Yield successive n-sized chunks from lst."""
+    for i in range(0, len(lst), n):
+        yield lst[i : i + n]
 
 
-def get_dominant_color(image):
-    data = np.reshape(image, (-1, 3))
-    data = np.float32(data)
-    criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 1.0)
-    flags = cv2.KMEANS_RANDOM_CENTERS
-    _, _, centers = cv2.kmeans(data, 1, None, criteria, 10, flags)
-    dominant_color = centers[0].astype(np.int32)
-    return tuple([int(c) for c in dominant_color])
+class SIZE_UNIT(enum.Enum):
+    BYTES = 1
+    KB = 2
+    MB = 3
+    GB = 4
 
 
-def write_img_to_dir(image, dirname, filename):
-    mkdir(dirname)
-    cv2.imwrite(os.path.join(dirname, filename), image)
+def convert_unit(size_in_bytes, unit):
+    """Convert the size from bytes to other units like KB, MB or GB"""
+    if unit == SIZE_UNIT.KB:
+        return size_in_bytes / 1024
+    elif unit == SIZE_UNIT.MB:
+        return size_in_bytes / (1024 * 1024)
+    elif unit == SIZE_UNIT.GB:
+        return size_in_bytes / (1024 * 1024 * 1024)
+    else:
+        return size_in_bytes
+
+
+def get_filename(file_path):
+    return os.path.basename(file_path).split(".")[0]
