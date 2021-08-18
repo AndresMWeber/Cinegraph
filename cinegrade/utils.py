@@ -43,4 +43,5 @@ def convert_unit(size_in_bytes, unit):
 
 
 def get_filename(file_path):
-    return os.path.basename(file_path).split(".")[0]
+    filename, _ = os.path.splitext(os.path.basename(file_path))
+    return filename

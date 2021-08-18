@@ -19,12 +19,12 @@ def create_filename(video_file_path):
     return f"{original_filename}_c{Config.num_colors}_b{Config.blur_x}_r{'x'.join(map(str,Config.resolution))}_f{int(Config.art_frame)}_fm{Config.art_frame_margin}.jpg"
 
 
-def generate(*files, colors=600, blur=5, resolution=(1920, 1080), frame=True, margin=50, write_frames=False):
+def generate(*files, colors=600, blur=5, resolution=(1920, 1080), no_frame=False, margin=50, write_frames=False):
     Config.blur_x = blur
     Config.blur_y = blur
     Config.resolution = resolution
     Config.num_colors = colors
-    Config.art_frame = frame
+    Config.art_frame = not no_frame
     Config.art_frame_margin = margin
     Config.write_frames = write_frames
 
