@@ -57,7 +57,7 @@ A CLI tool that creates a kaleidescope-esque gradient image of your favorite mov
 <img src="./examples/(2012)%20Total%20Recall_c600_b5_r1920x1080_f1_fm50.jpg" />
 
 <h2>Elysium</h2>
-<img src="./examples/(2012)%20Total%20Recall_c600_b5_r1920x1080_f1_fm50.jpg" />
+<img src="./examples/(2013)%20Elysium_c600_b5_r1920x1080_f1_fm50.jpg" />
 
 <h2>Pacific Rim</h2>
 <img src="./examples/(2013)%20Pacific%20Rim_c600_b5_r1920x1080_f1_fm50.jpg" />
