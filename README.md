@@ -1,5 +1,5 @@
 <p align="center">
-        <img width=300px height=300px src="./docs/logo.png" alt="Cinegraph Logo"
+        <img width=200px height=200px src="./docs/logo.png" alt="Cinegraph Logo"
 </p>
 
 <h2 align="center">Cinegraph 🎞️</h2>
