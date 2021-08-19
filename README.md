@@ -1,6 +1,6 @@
 <p align="center">
         <img width=200px height=200px src="./docs/logo.png" alt="Cinegraph Logo"
-</p>
+</>
 
 <div align="center">
     <a href="https://github.com/AndresMWeber/Cinegraph">
@@ -19,10 +19,11 @@
     <a href="https://pypi.python.org/pypi/cinegraph">
         <img alt="Supported Python Versions" src="https://img.shields.io/pypi/pyversions/cinegraph.svg" />
     </a>
+        <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/andresmweber/Cinegraph" />
+    </a>
+    <br />
     <a href="https://github.com/AndresMWeber/cinegraph/actions/workflows/pypi-upload.yml">
         <img alt="GitHub PyPi Deploy Action Status" src="https://github.com/AndresMWeber/cinegraph/actions/workflows/pypi-upload.yml/badge.svg" />
-    </a>
-        <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/andresmweber/Cinegraph" />
     </a>
 </div>
 <br>
@@ -155,6 +156,7 @@ $ cinegraph
 ## ⛏️ Tech Stack <a name = "tech"></a>
 
 - [Python](https://www.python.org/) - Software Development
+- [Poetry](https://python-poetry.org/) - Package Management
 - [OpenCV](https://opencv.org/) - Image Processing
 - [Fire](https://github.com/google/python-fire) - CLI Framework
 
