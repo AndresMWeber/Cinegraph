@@ -13,7 +13,6 @@ def get_files():
     root.withdraw()
     return filedialog.askopenfilenames()
 
-
 def create_filename(video_file_path):
     original_filename = get_filename(video_file_path)
     return f"{original_filename}_c{Config.num_colors}_b{Config.blur_x}_r{'x'.join(map(str,Config.resolution))}_f{int(Config.art_frame)}_fm{Config.art_frame_margin}.jpg"
@@ -29,7 +28,11 @@ def generate(*files, colors=600, blur=5, resolution=(1920, 1080), no_frame=False
     Config.write_frames = write_frames
 
     if not files:
-        files = get_files()
+        try:
+            files = get_files()
+        except:
+            files = []
+    
     if files:
         for file_name in files:
             print(f"Processing file ({round(convert_unit(getsize(file_name), SIZE_UNIT.MB),2)}) {file_name} ")
@@ -37,7 +40,7 @@ def generate(*files, colors=600, blur=5, resolution=(1920, 1080), no_frame=False
             output = write_img_to_dir(cinegraph, Config.output_dir, create_filename(file_name))
             print(f"Created cinegraph: {output}")
     else:
-        return "Exiting..."
+        return "No files specified...exiting..."
 
 
 def execute():
