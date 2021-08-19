@@ -3,6 +3,7 @@ authors = ["Andres Weber <andresmweber@gmail.com>"]
 description = "A CLI tool that creates a kaleidescope-esque gradient image of your favorite movie."
 keywords = ["cinegraph", "cinema", "movie", "gradient", "opencv", "cli", "image", "film", "motiongraph", "colors"]
 name = "cinegraph"
+readme = "README.md"
 version = "0.1.0"
 
 [tool.poetry.dependencies]
