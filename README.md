@@ -90,10 +90,11 @@ Additionally you can run it with the following flags:
 ```
 NAME
     poetry run exec
+    cinegraph
 
 SYNOPSIS
     poetry run exec <flags> [FILES]...
-
+    cinegraph <flags> [FILES]...
 POSITIONAL ARGUMENTS
     FILES
         The files that you want to be processed.
@@ -145,3 +146,4 @@ FLAGS
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
 - [@FFMPEG](https://www.ffmpeg.org/) for providing amazing open source video solutions.
+- [The Colors of Motion](https://thecolorsofmotion.com/) for being the inspiriation and the idea that I tried my best to mimic. 

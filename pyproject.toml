@@ -1,14 +1,15 @@
 [tool.poetry]
 authors = ["Andres Weber <andresmweber@gmail.com>"]
 description = "A CLI tool that creates a kaleidescope-esque gradient image of your favorite movie."
+keywords = ["cinegraph", "cinema", "movie", "gradient", "opencv", "cli", "image", "film", "motiongraph", "colors"]
 name = "cinegrade"
 version = "0.1.0"
 
 [tool.poetry.dependencies]
+fire = "^0.4.0"
 opencv-python = "^4.5.3"
 python = "^3.8"
 tqdm = "^4.62.1"
-fire = "^0.4.0"
 
 [tool.poetry.dev-dependencies]
 black = "^21.7b0"
@@ -18,7 +19,7 @@ build-backend = "poetry.core.masonry.api"
 requires = ["poetry-core>=1.0.0"]
 
 [tool.poetry.scripts]
-exec = 'cinegrade.cli:execute'
+cinegraph = 'cinegrade.cli:execute'
 
 [tool.black]
 include = '\.pyi?$'
