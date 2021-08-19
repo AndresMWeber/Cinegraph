@@ -9,11 +9,19 @@
     <a href="https://github.com/AndresMWeber/Cinegraph/issues">
         <img alt="Issues" src="https://img.shields.io/github/issues/andresmweber/Cinegraph.svg" />
     </a>
-    <a href="https://github.com/AndresMWeber/Cinegraph/blob/master/LICENSE">
-        <img alt="License" src="https://img.shields.io/badge/License-BSD%203--Clause-blue.svg" />
+    <a href="https://www.gnu.org/licenses/gpl-3.0">
+        <img alt="License" src="https://img.shields.io/badge/License-GPLv3-blue.svg" />
     </a>
     <br />
-    <a href=".">
+    <a href="https://badge.fury.io/py/cinegraph">
+        <img alt="PyPi Repo" src="https://badge.fury.io/py/cinegraph.svg" />
+    </a>
+    <a href="https://pypi.python.org/pypi/cinegraph">
+        <img alt="Supported Python Versions" src="https://img.shields.io/pypi/pyversions/cinegraph.svg" />
+    </a>
+    <a href="https://github.com/AndresMWeber/cinegraph/actions/workflows/pypi-upload.yml">
+        <img alt="GitHub PyPi Deploy Action Status" src="https://github.com/AndresMWeber/cinegraph/actions/workflows/pypi-upload.yml/badge.svg" />
+    </a>
         <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/andresmweber/Cinegraph" />
     </a>
 </div>
