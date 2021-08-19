@@ -78,9 +78,13 @@ A CLI tool that creates a kaleidescope-esque gradient image of your favorite mov
 </div>
 
 ## 💨 Quickstart <a name = "quickstart"></a>
-The current run script can be invoked using:
+If you are running from the repository Cinegraph can be invoked using:
 ``` bash
 $ poetry run exec 
+```
+or if you are running from a pip installation you should have the CLI command available:
+``` bash
+$ cinegraph
 ```
 
 If you do not provide any positional arguments to specify input files it will automatically open a [Tkinter](https://docs.python.org/3/library/tkinter.html) file picker, you need to have a capable display window provider (if using WSL [Xserver](https://www.x.org/releases/X11R7.7/doc/man/man1/Xserver.1.xhtml) is a great option.)
@@ -123,11 +127,20 @@ FLAGS
 
 ## 💾 Installation
 
-### Prerequsites
+### From PyPi
+#### Install steps
+1. Install using pip: `pip install cinegraph`
+2. You will then have the CLI command available to you:
+``` bash
+$ cinegraph
+```
+
+### From GitHub Repo Clone
+#### Prerequsites
 
 1. [Python](https://www.python.org/) and [Python Poetry](https://python-poetry.org/) is installed
 
-### Install steps
+#### Install steps
 1. `poetry install` (To install in the top level directory always: `poetry config virtualenvs.in-project true`)
 
 
