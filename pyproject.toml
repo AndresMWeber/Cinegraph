@@ -4,7 +4,7 @@ description = "A CLI tool that creates a kaleidescope-esque gradient image of yo
 keywords = ["cinegraph", "cinema", "movie", "gradient", "opencv", "cli", "image", "film", "motiongraph", "colors"]
 name = "cinegraph"
 readme = "README.md"
-version = "0.1.0"
+version = "0.1.1"
 
 [tool.poetry.dependencies]
 fire = "^0.4.0"
