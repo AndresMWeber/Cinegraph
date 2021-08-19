@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 import numpy as np
 import cv2
-from cinegrade.utils import Config
+from cinegraph.utils import Config
 
 
 class Video:

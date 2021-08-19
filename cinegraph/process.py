@@ -2,9 +2,9 @@ import os
 from tqdm import tqdm
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from multiprocessing import Manager, cpu_count
-from cinegrade.images import Video, draw_center_box, get_dominant_color, write_img_to_dir
-from cinegrade.gradient import create_cinegrade
-from cinegrade.utils import Config, chunk_list, get_filename
+from cinegraph.images import Video, draw_center_box, get_dominant_color, write_img_to_dir
+from cinegraph.gradient import create_cinegraph
+from cinegraph.utils import Config, chunk_list, get_filename
 
 
 def write_video_snap(image, frame_number, dominant_color, video_file_path):
@@ -48,5 +48,5 @@ def process_video(video_file_path):
                     pbar.update(1)
                 pbar.close()
 
-                gradient = create_cinegrade(colors)
+                gradient = create_cinegraph(colors)
                 return gradient

@@ -1,10 +1,10 @@
-from cinegrade.images import write_img_to_dir
-from cinegrade.utils import Config, SIZE_UNIT, convert_unit, get_filename
+from cinegraph.images import write_img_to_dir
+from cinegraph.utils import Config, SIZE_UNIT, convert_unit, get_filename
 import fire
 from os.path import getsize
 import tkinter as tk
 from tkinter import filedialog
-from cinegrade.process import process_video
+from cinegraph.process import process_video
 
 
 def get_files():
@@ -33,9 +33,9 @@ def generate(*files, colors=600, blur=5, resolution=(1920, 1080), no_frame=False
     if files:
         for file_name in files:
             print(f"Processing file ({round(convert_unit(getsize(file_name), SIZE_UNIT.MB),2)}) {file_name} ")
-            cinegrade = process_video(file_name)
-            output = write_img_to_dir(cinegrade, Config.output_dir, create_filename(file_name))
-            print(f"Created Cinegrade: {output}")
+            cinegraph = process_video(file_name)
+            output = write_img_to_dir(cinegraph, Config.output_dir, create_filename(file_name))
+            print(f"Created cinegraph: {output}")
     else:
         return "Exiting..."
 

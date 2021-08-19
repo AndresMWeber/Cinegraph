@@ -1,11 +1,11 @@
 import cv2
 import numpy as np
 from typing import List, Tuple
-from cinegrade.images import center_rectangle_bounding_box, place_image_in_center
-from cinegrade.utils import Config
+from cinegraph.images import center_rectangle_bounding_box, place_image_in_center
+from cinegraph.utils import Config
 
 
-def create_cinegrade(colors: List):
+def create_cinegraph(colors: List):
     if Config.art_frame:
         return create_matting(colors)
     else:
