@@ -21,7 +21,13 @@
     </a>
         <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/andresmweber/Cinegraph" />
     </a>
+    <a href="https://codecov.io/gh/AndresMWeber/cinegraph">
+    <img src="https://codecov.io/gh/AndresMWeber/cinegraph/branch/main/graph/badge.svg?token=rQNFZEvfMu"/>
+    </a>
     <br />
+    <a href="https://github.com/AndresMWeber/cinegraph/actions/workflows/py-cicd.yml">
+        <img alt="GitHub CICD Action Status" src="https://github.com/AndresMWeber/cinegraph/actions/workflows/pypi-upload.yml/badge.svg" />
+    </a>
     <a href="https://github.com/AndresMWeber/cinegraph/actions/workflows/pypi-upload.yml">
         <img alt="GitHub PyPi Deploy Action Status" src="https://github.com/AndresMWeber/cinegraph/actions/workflows/pypi-upload.yml/badge.svg" />
     </a>
@@ -48,8 +54,11 @@
 - [💨 Quickstart <a name = "quickstart"></a>](#-quickstart-)
   - [Flags](#flags)
 - [💾 Installation](#-installation)
-  - [Prerequsites](#prerequsites)
-  - [Install steps](#install-steps)
+  - [From PyPi](#from-pypi)
+    - [Install steps](#install-steps)
+  - [From GitHub Repo Clone](#from-github-repo-clone)
+    - [Prerequsites](#prerequsites)
+    - [Install steps](#install-steps-1)
 - [⛏️ Tech Stack <a name = "tech"></a>](#️-tech-stack-)
 - [✍️ Authors <a name = "authors"></a>](#️-authors-)
 - [🎉 Acknowledgements <a name = "acknowledgement"></a>](#-acknowledgements-)
