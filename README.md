@@ -98,7 +98,7 @@ A CLI tool that creates a kaleidescope-esque gradient image of your favorite mov
 ## 💨 Quickstart <a name = "quickstart"></a>
 If you are running from the repository Cinegraph can be invoked using:
 ``` bash
-$ poetry run exec 
+$ poetry run cinegraph 
 ```
 or if you are running from a pip installation you should have the CLI command available:
 ``` bash
@@ -111,11 +111,11 @@ Additionally you can run it with the following flags:
 ### Flags
 ```
 NAME
-    poetry run exec
+    poetry run cinegraph
     cinegraph
 
 SYNOPSIS
-    poetry run exec <flags> [FILES]...
+    poetry run cinegraph <flags> [FILES]...
     cinegraph <flags> [FILES]...
 POSITIONAL ARGUMENTS
     FILES
