@@ -1,0 +1,56 @@
+name: CI/CD
+
+on:
+  push:
+    paths-ignore:
+      - "README.md"
+  pull_request:
+    branches:
+      - "**"
+
+jobs:
+  ci:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [3.8, 3.9]
+        poetry-version: [1.1.6]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run image
+        uses: abatilo/actions-poetry@v2.0.0
+        with:
+          poetry-version: ${{ matrix.poetry-version }}
+      - name: Install dependencies
+        run: poetry install
+      - name: Run test suite
+        run: poetry run pytest
+      - name: Install coverage
+        run: pip3 install -U coverage coverage[toml]
+      - name: Convert to xml coverage file
+        run: coverage xml
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v2
+        with:
+          name: codecov
+          path: coverage.xml
+  upload-coverage:
+    needs: ci
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: "Download artifact"
+        uses: actions/download-artifact@v2
+        with:
+          name: codecov
+      - name: Display structure of downloaded files
+        run: ls -R -all
+      - name: "Upload coverage to Codecov"
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
