@@ -1,5 +1,5 @@
 <p align="center">
-        <img width=200px height=200px src="./docs/logo.png" alt="Cinegraph Logo"
+        <img width=200px height=200px src="https://raw.githubusercontent.com/AndresMWeber/cinegraph/main/docs/logo.png" alt="Cinegraph Logo"
 </>
 
 <div align="center">
@@ -72,27 +72,27 @@ A CLI tool that creates a kaleidescope-esque gradient image of your favorite mov
 
 <div align=center>
 <h2>Total Recall</h2>
-<img src="./examples/(2012)%20Total%20Recall_c600_b5_r1920x1080_f1_fm50.jpg" />
+<img src="https://raw.githubusercontent.com/AndresMWeber/cinegraph/main/examples/(2012)%20Total%20Recall_c600_b5_r1920x1080_f1_fm50.jpg" />
 
 <h2>Elysium</h2>
-<img src="./examples/(2013)%20Elysium_c600_b5_r1920x1080_f1_fm50.jpg" />
+<img src="https://raw.githubusercontent.com/AndresMWeber/cinegraph/main/examples/(2013)%20Elysium_c600_b5_r1920x1080_f1_fm50.jpg" />
 
 <h2>Pacific Rim</h2>
-<img src="./examples/(2013)%20Pacific%20Rim_c600_b5_r1920x1080_f1_fm50.jpg" />
+<img src="https://raw.githubusercontent.com/AndresMWeber/cinegraph/main/examples/(2013)%20Pacific%20Rim_c600_b5_r1920x1080_f1_fm50.jpg" />
 
 <h2>Star Trek Into Darkness</h2>
-<img src="./examples/(2013)%20Star%20Trek%20Into%20Darkness_c600_b5_r1920x1080_f1_fm50.jpg" />
+<img src="https://raw.githubusercontent.com/AndresMWeber/cinegraph/main/examples/(2013)%20Star%20Trek%20Into%20Darkness_c600_b5_r1920x1080_f1_fm50.jpg" />
 
 <h2>Edge of Tomorrow</h2>
-<img src="./examples/Edge_of_Tomorrow_c600_b5_r1920x1080_f1_fm50.jpg" />
+<img src="https://raw.githubusercontent.com/AndresMWeber/cinegraph/main/examples/Edge_of_Tomorrow_c600_b5_r1920x1080_f1_fm50.jpg" />
 
 <h2>Example Write Frames</h2>
-<img src="./examples/Elysium/f_1052.jpg" />
-<img src="./examples/Elysium/f_2367.jpg" />
-<img src="./examples/Elysium/f_108619.jpg" />
-<img src="./examples/Elysium/f_122821.jpg" />
-<img src="./examples/Elysium/f_150699.jpg" />
-<img src="./examples/Elysium/f_157274.jpg" />
+<img src="https://raw.githubusercontent.com/AndresMWeber/cinegraph/main/examples/Elysium/f_1052.jpg" />
+<img src="https://raw.githubusercontent.com/AndresMWeber/cinegraph/main/examples/Elysium/f_2367.jpg" />
+<img src="https://raw.githubusercontent.com/AndresMWeber/cinegraph/main/examples/Elysium/f_108619.jpg" />
+<img src="https://raw.githubusercontent.com/AndresMWeber/cinegraph/main/examples/Elysium/f_122821.jpg" />
+<img src="https://raw.githubusercontent.com/AndresMWeber/cinegraph/main/examples/Elysium/f_150699.jpg" />
+<img src="https://raw.githubusercontent.com/AndresMWeber/cinegraph/main/examples/Elysium/f_157274.jpg" />
 </div>
 
 ## 💨 Quickstart <a name = "quickstart"></a>
