@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 from tqdm import tqdm
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from multiprocessing import Manager, cpu_count
@@ -30,6 +31,9 @@ def process_frame(video, frame_number, colors, video_file_path):
 
 
 def process_video(video_file_path):
+    if not (Path(video_file_path).is_file()):
+        raise FileNotFoundError(f"Could not find associated video file {video_file_path}")
+
     video = Video(video_file_path, Config.num_colors)
     colors = []
     frame_numbers = range(0, len(video), video.frame_step)
@@ -47,6 +51,5 @@ def process_video(video_file_path):
                 for _ in as_completed(futures):
                     pbar.update(1)
                 pbar.close()
-
                 gradient = create_cinegraph(colors)
                 return gradient

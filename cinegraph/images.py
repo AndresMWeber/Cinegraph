@@ -12,6 +12,7 @@ class Video:
 
     def set_desired_frames(self, number_of_frames):
         self.frame_step = int(len(self) / number_of_frames) + 1
+        return self
 
     def get_frame(self, frame):
         self.vidcap.set(cv2.CAP_PROP_POS_FRAMES, frame)

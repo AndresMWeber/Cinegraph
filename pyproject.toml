@@ -3,6 +3,9 @@ authors = ["Andres Weber <andresmweber@gmail.com>"]
 description = "A CLI tool that creates a kaleidescope-esque gradient image of your favorite movie."
 keywords = ["cinegraph", "cinema", "movie", "gradient", "opencv", "cli", "image", "film", "motiongraph", "colors"]
 name = "cinegraph"
+packages = [
+  {include = "cinegraph"},
+]
 readme = "README.md"
 version = "0.1.1"
 
@@ -14,6 +17,9 @@ tqdm = "^4.62.1"
 
 [tool.poetry.dev-dependencies]
 black = "^21.7b0"
+pytest = "^6.2.4"
+pytest-cov = "^2.12.1"
+pytest-ordering = "^0.6"
 
 [build-system]
 build-backend = "poetry.core.masonry.api"
@@ -22,7 +28,28 @@ requires = ["poetry-core>=1.0.0"]
 [tool.poetry.scripts]
 cinegraph = 'cinegraph.cli:execute'
 
+[tool.pytest.ini_options]
+addopts = '--cov=cinegraph --cov-report term -v -r w'
+
 [tool.black]
 include = '\.pyi?$'
 line-length = 120
 target-version = ['py38']
+
+[tool.coverage.run]
+branch = true
+source = ["cinegraph"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "if self.debug:",
+  "pragma: no cover",
+  "raise NotImplementedError",
+  "if __name__ == .__main__.:",
+]
+ignore_errors = true
+omit = [
+  "tests/*",
+  "**/*/__init__.py",
+]
+show_missing = true

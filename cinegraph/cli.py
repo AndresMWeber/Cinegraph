@@ -1,15 +1,14 @@
+from os.path import getsize
+from tkinter import filedialog, Tk
+import fire
 from cinegraph.images import write_img_to_dir
 from cinegraph.utils import Config, SIZE_UNIT, convert_unit, get_filename
-import fire
-from os.path import getsize
-import tkinter as tk
-from tkinter import filedialog
 from cinegraph.process import process_video
 
 
 def get_files():
     """Uses Tkinter to interactively generate file list for processing."""
-    root = tk.Tk()
+    root = Tk()
     root.withdraw()
     return filedialog.askopenfilenames()
 
