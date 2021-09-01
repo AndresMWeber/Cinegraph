@@ -1,8 +1,19 @@
 <p align="center">
-        <img width=200px height=200px src="https://raw.githubusercontent.com/AndresMWeber/cinegraph/main/docs/logo.png" alt="Cinegraph Logo"
-</>
+        <img width=200px height=200px src="https://raw.githubusercontent.com/AndresMWeber/cinegraph/main/docs/logo.png" alt="Cinegraph Logo" />
+</p>
 
 <div align="center">
+    <a href="https://badge.fury.io/py/cinegraph">
+        <img alt="PyPi Repo" src="https://badge.fury.io/py/cinegraph.svg" />
+    </a>
+    <br />
+    <a href="https://github.com/AndresMWeber/cinegraph/actions/workflows/py-cicd.yml">
+        <img alt="GitHub CICD Action Status" src="https://github.com/AndresMWeber/Cinegraph/actions/workflows/py-cicd.yml/badge.svg" />
+    </a>
+    <a href="https://github.com/AndresMWeber/cinegraph/actions/workflows/pypi-upload.yml">
+        <img alt="GitHub PyPi Deploy Action Status" src="https://github.com/AndresMWeber/cinegraph/actions/workflows/pypi-upload.yml/badge.svg" />
+    </a>
+    <br/>
     <a href="https://github.com/AndresMWeber/Cinegraph">
         <img alt="Status" src="https://img.shields.io/badge/status-active-success.svg" />
     </a>
@@ -13,24 +24,16 @@
         <img alt="License" src="https://img.shields.io/badge/License-GPLv3-blue.svg" />
     </a>
     <br />
-    <a href="https://badge.fury.io/py/cinegraph">
-        <img alt="PyPi Repo" src="https://badge.fury.io/py/cinegraph.svg" />
-    </a>
     <a href="https://pypi.python.org/pypi/cinegraph">
         <img alt="Supported Python Versions" src="https://img.shields.io/pypi/pyversions/cinegraph.svg" />
     </a>
+    <a href="https://codecov.io/gh/AndresMWeber/cinegraph">
+        <img src="https://codecov.io/gh/AndresMWeber/cinegraph/branch/main/graph/badge.svg?token=rQNFZEvfMu"/>
+    </a>
+    <a>
         <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/andresmweber/Cinegraph" />
     </a>
-    <a href="https://codecov.io/gh/AndresMWeber/cinegraph">
-    <img src="https://codecov.io/gh/AndresMWeber/cinegraph/branch/main/graph/badge.svg?token=rQNFZEvfMu"/>
-    </a>
     <br />
-    <a href="https://github.com/AndresMWeber/cinegraph/actions/workflows/py-cicd.yml">
-        <img alt="GitHub CICD Action Status" src="https://github.com/AndresMWeber/cinegraph/actions/workflows/pypi-upload.yml/badge.svg" />
-    </a>
-    <a href="https://github.com/AndresMWeber/cinegraph/actions/workflows/pypi-upload.yml">
-        <img alt="GitHub PyPi Deploy Action Status" src="https://github.com/AndresMWeber/cinegraph/actions/workflows/pypi-upload.yml/badge.svg" />
-    </a>
 </div>
 <br>
 

@@ -9,11 +9,11 @@ from .file_paths import SAMPLE_VIDEO_MP4, SAMPLE_VIDEO_AVI, SAMPLE_VIDEO_EMPTY_M
 class TestProcessVideo:
     def test_file_exists_mp4(self):
         video = cgp.process_video(SAMPLE_VIDEO_MP4)
-        assert video.any()
+        assert video.size
 
     def test_file_exists_avi(self):
         video = cgp.process_video(SAMPLE_VIDEO_AVI)
-        assert video.any()
+        assert video.size
 
     def test_file_does_not_exist(self):
         with pytest.raises(FileNotFoundError):
