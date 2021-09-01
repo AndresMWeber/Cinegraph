@@ -1,5 +1,5 @@
 import pytest
-from cinegraph.utils import Config, chunk_list, SIZE_UNIT, convert_unit, get_filename
+from cinegraph.utils import PrintSize, Config, chunk_list, SIZE_UNIT, convert_filesize, get_filename
 
 
 class TestConfig:
@@ -34,16 +34,16 @@ class TestChunkList:
 
 class TestConvertUnit:
     def test_kb(self):
-        assert pytest.approx(convert_unit(1000, SIZE_UNIT.KB), 1)
+        assert pytest.approx(convert_filesize(1000, SIZE_UNIT.KB), 1)
 
     def test_mb(self):
-        assert pytest.approx(convert_unit(1000, SIZE_UNIT.MB), 0.001)
+        assert pytest.approx(convert_filesize(1000, SIZE_UNIT.MB), 0.001)
 
     def test_gb(self):
-        assert pytest.approx(convert_unit(1000, SIZE_UNIT.GB), 0.000001)
+        assert pytest.approx(convert_filesize(1000, SIZE_UNIT.GB), 0.000001)
 
     def test_kb(self):
-        assert convert_unit(1000, 5) == 1000
+        assert convert_filesize(1000, 5) == 1000
 
 
 class TestGetFilename:
@@ -61,3 +61,31 @@ class TestGetFilename:
 
     def test_no_filename(self):
         assert get_filename(r"/root/dir1/") == ""
+
+
+class TestPrintSize:
+    def test_init(self):
+        assert PrintSize((12, 200))
+
+    def test_from_string(self):
+        a8 = PrintSize.from_string("A8")
+        assert a8.x == PrintSize.sizes["A8"][0]
+        assert a8.y == PrintSize.sizes["A8"][1]
+
+    def test_bad_res(self):
+        assert PrintSize("A9")
+
+    def test_pixels_to_dpi(self):
+        assert PrintSize.pixels_to_dpi(5400, 457.2) == 300
+
+    def test_dpi_to_pixels(self):
+        assert PrintSize.dpi_to_pixels(300, 457.2) == 5400
+
+    def test_size_from_dpi_pixels(self):
+        assert PrintSize.size_from_dpi_pixels(300, 5400) == 457.2
+
+    def test_to_print_resolution(self):
+        assert PrintSize.from_string("A1").to_print_resolution(300) == (7016, 9933)
+
+    def test_init_to_dpi(self):
+        assert PrintSize((1920, 1080)).to_print_resolution(300) == (22677, 12756)

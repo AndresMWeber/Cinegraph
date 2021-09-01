@@ -134,8 +134,27 @@ FLAGS
         Resolution for the Cinegraph
         Example Input:
             1000,1200
-    -n,--no_frame=NO_FRAME
-        Remove the white border + frame for the Cinegraph
+    -t,--template=TEMPLATE
+        International Standard Paper Format Name
+        Available Options:
+            A0 - 	    33-1/8 x 46-13/16 in	    841 x 1188 mm
+            A1 - 	    23-3/8 x 33-1/8 in	        594 x 841 mm
+            A2 - 	    16-1/2 x 23-3/8 in	        420 x 594 mm
+            A3 - 	    11-3/4 x 16-1/2 in	        297 x 420 mm
+            A4 - 	    8-1/4 x 11-3/4 in	        210 x 297 mm
+            A5 - 	    5-7/8 x 8-1/4 in	        148 x 210 mm
+            A6 - 	    4-1/8 x 5-7/8 in	        105 x 148 mm
+            A7 - 	    2-15/16 x 4-1/8 in	        74 x 105 mm
+            A8 - 	    2-1/16 x 2-15/16 in	        52 x 74 mm
+            LETTER  -   8.5 x 11 in                 215.9 x 279.4 mm
+            SMALL	-   11 x 17 in                  279.4 x 431.8 mm
+            MEDIUM	-   18 x 24 in                  457.2 x 609.6 mm
+            LARGE	-   24 x 36 in                  609.6 x 914.4 mm
+    -d,--dpi=DPI
+        The desired print resolution, must be specified as a whole number
+        e.g. 72
+    -f,--frame=FRAME
+        Add a white border + frame for the Cinegraph
     -m,--margin=MARGIN
         Set the margin (in pixels) for the border around the Cinegraph
         e.g. 25
