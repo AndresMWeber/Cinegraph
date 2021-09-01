@@ -20,4 +20,4 @@ class TestCli:
 
 
 def test_create_filename():
-    assert create_filename(SAMPLE_VIDEO_MP4) == "sample-1s_c600_b5_r1920x1080_f1_fm50.jpg"
+    assert create_filename(SAMPLE_VIDEO_MP4) == "sample-1s_c600_b5_r1920x1080_f0_fm50.jpg"

@@ -9,11 +9,11 @@ from .file_paths import SAMPLE_VIDEO_MP4, SAMPLE_VIDEO_AVI, SAMPLE_VIDEO_EMPTY_M
 class TestProcessVideo:
     def test_file_exists_mp4(self):
         video = cgp.process_video(SAMPLE_VIDEO_MP4)
-        assert video.any()
+        assert video.size
 
     def test_file_exists_avi(self):
         video = cgp.process_video(SAMPLE_VIDEO_AVI)
-        assert video.any()
+        assert video.size
 
     def test_file_does_not_exist(self):
         with pytest.raises(FileNotFoundError):
@@ -28,9 +28,11 @@ class TestWriteVideoSnap:
     original_output_dir = Config.output_dir
 
     def setup_class(self):
+        Config.art_frame = True
         Config.output_dir = str(here.absolute())
 
     def teardown_class(self):
+        Config.art_frame = False
         Config.output_dir = self.original_output_dir
         Path(here / "sample-black/f_10.jpg").unlink()
         Path(here / "sample-black").rmdir()
